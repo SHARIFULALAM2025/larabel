@@ -1,0 +1,335 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+
+  --radius-sm: calc(var(--radius) - 0.25rem);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 0.25rem);
+  --radius-xl: calc(var(--radius) + 0.5rem);
+
+  --font-display: 'Hind Siliguri', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Hind Siliguri', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+/* ============================================================
+   LIGHT MODE (Satt Academy style)
+   ============================================================ */
+:root {
+  --background: #ffffff;
+  --foreground: #1e293b;
+  --primary: #1e40af;          /* Strong blue */
+  --primary-foreground: #ffffff;
+  --accent: #0d9488;           /* Teal/Green accent */
+  --accent-foreground: #ffffff;
+  --card: #f8fafc;
+  --border: #e2e8f0;
+  --muted: #64748b;
+
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --info: #0284c7;
+
+  --radius: 0.5rem;
+}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+.dark {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --primary: #3b82f6;
+  --primary-foreground: #0f172a;
+  --accent: #14b8a6;
+  --accent-foreground: #0f172a;
+  --card: #1e293b;
+  --border: #334155;
+  --muted: #94a3b8;
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #38bdf8;
+}
+
+/* Dark mode variant for Tailwind */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+
+  code,
+  kbd,
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--accent) 35%, transparent);
+    color: var(--foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--muted) 40%, transparent);
+    border-radius: 999px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+/* ============================================================
+   SIGNATURE PATTERNS & COMPONENTS
+   ============================================================ */
+.bg-star-pattern {
+  background-image:
+    radial-gradient(
+      circle at 1px 1px,
+      rgb(var(--pattern-ink) / var(--pattern-opacity)) 1.4px,
+      transparent 0
+    ),
+    conic-gradient(
+      from 45deg,
+      rgb(var(--pattern-ink) / var(--pattern-opacity)) 0deg 45deg,
+      transparent 45deg 90deg
+    );
+  background-size: 28px 28px, 56px 56px;
+}
+
+.divider-seal {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--muted);
+}
+.divider-seal::before,
+.divider-seal::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.divider-seal-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  background: var(--accent);
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.label {
+  --label-color: var(--industry-default);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--label-color);
+  background: color-mix(in oklab, var(--label-color) 14%, var(--card));
+  border: 1px solid color-mix(in oklab, var(--label-color) 32%, transparent);
+  white-space: nowrap;
+}
+.label::before {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  background: var(--label-color);
+  border-radius: 2px;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+.label:hover {
+  background: color-mix(in oklab, var(--label-color) 22%, var(--card));
+}
+.label[data-industry="tech"] {
+  --label-color: var(--industry-tech);
+}
+.label[data-industry="business"] {
+  --label-color: var(--industry-business);
+}
+.label[data-industry="design"] {
+  --label-color: var(--industry-design);
+}
+.label[data-industry="language"] {
+  --label-color: var(--industry-language);
+}
+.label[data-industry="science"] {
+  --label-color: var(--industry-science);
+}
+.label[data-industry="arts"] {
+  --label-color: var(--industry-arts);
+}
+
+.label--seal {
+  background: transparent;
+  border: none;
+  padding-left: 0.2rem;
+}
+.label--seal::before {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 0;
+  background: var(--label-color);
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  transform: none;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.card--illuminated {
+  position: relative;
+  overflow: hidden;
+}
+.card--illuminated::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent) 20%,
+    var(--accent) 80%,
+    transparent
+  );
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-rise {
+  animation: fade-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+/* Table borders — force visible */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th,
+table td {
+  border: 1px solid var(--border) !important;
+}
+
+table thead th {
+  border-color: color-mix(in oklab, var(--primary-foreground) 25%, transparent) !important;
+}

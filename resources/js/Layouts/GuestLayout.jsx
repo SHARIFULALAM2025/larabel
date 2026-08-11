@@ -3,9 +3,9 @@ import Navbar from "@/Components/Navbar";
 
 export default function GuestLayout({ children }) {
     return (
-        <div className="w-full min-w-0 max-w-full overflow-x-hidden">
+        <div className="w-full min-w-0 max-w-full ">
             <Navbar />
-            <div className="w-full min-w-0 max-w-full">{children}</div>
+            <div className="w-full min-w-0 max-w-full pt-14">{children}</div>
             <Footer />
         </div>
     );

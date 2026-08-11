@@ -25,7 +25,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="bg-card border-b border-border shadow-sm sticky top-0 z-50">
+        <nav className="bg-card border-b border-border w-full shadow-sm fixed top-0 z-50">
             <div className=" px-4">
                 <div className="flex justify-between items-center h-14">
                     {/* Logo */}

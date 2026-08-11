@@ -13,7 +13,7 @@ import PrimaryButton from "../PrimaryButton";
 export default function Hero() {
     return (
         <section className="relative bg-background text-foreground overflow-hidden">
-            <div className="relative  ">
+            <div className="relative pt-6 ">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center py-8 sm:py-10 lg:py-0 lg:min-h-[calc(100vh-4rem)]">
                     {/* Left Content */}
                     <div className="lg:col-span-6 space-y-4 sm:space-y-5 text-center lg:text-left order-2 lg:order-1">

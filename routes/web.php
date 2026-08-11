@@ -29,6 +29,12 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/academy', function () {
+    return Inertia::render('Academy');
+})->name('academy');
+Route::get('/banglaLiteratureHistory', function () {
+    return Inertia::render('Bangla_Literature_and_History');
+})->name('banglaLiteratureHistory');
 // auth route
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

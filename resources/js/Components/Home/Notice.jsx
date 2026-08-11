@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaFilePdf, FaSearch, FaEye } from "react-icons/fa";
+import { FaFilePdf, FaSearch, } from "react-icons/fa";
 
 const notices = [
     {
@@ -113,8 +113,14 @@ export default function Notice() {
     };
 
     return (
-        <section className="bg-background text-foreground w-full max-w-full min-w-0">
+        <section className="bg-background text-foreground w-full max-w-full min-w-0 lg:pt-5">
             <div className="w-full max-w-full min-w-0">
+                <div className="mb-6 px-4 sm:px-0">
+                    <h1 className="text-center text-2xl font-bold leading-snug text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
+                        চলমান চাকরি পরীক্ষাসমূহে এখনই আবেদন করুন !
+                    </h1>
+                </div>
+
                 {/* Toolbar */}
                 <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div className="relative w-full sm:w-64 md:w-72">
@@ -127,7 +133,7 @@ export default function Notice() {
                                 setSearch(e.target.value);
                                 setPage(0);
                             }}
-                            className="w-full rounded-lg border border-border bg-card py-2.5 pl-10 pr-3 text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent/40"
+                            className="w-full rounded-sm border border-border bg-card py-2.5 pl-10 pr-3 text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent/40"
                         />
                     </div>
 
@@ -138,7 +144,7 @@ export default function Notice() {
                         <select
                             value={rowsPerPage}
                             onChange={handleRowsPerPage}
-                            className="rounded-lg border border-border bg-card px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/40"
+                            className="rounded-sm border border-border bg-card px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/40"
                         >
                             <option value={5}>৫</option>
                             <option value={10}>১০</option>
@@ -148,19 +154,16 @@ export default function Notice() {
                     </div>
                 </div>
 
-                <div className="w-full min-w-0 max-w-full rounded-xl border border-border bg-card shadow-sm">
+                <div className="w-full min-w-0 max-w-full overflow-hidden  border border-border bg-card shadow-sm">
                     {/* এই div-এ স্ক্রল হবে */}
-                    <div className="w-full overflow-x-auto">
-                        <table
-                            className="border-collapse text-sm"
-                            style={{ minWidth: 920 }}
-                        >
+                    <div className="w-full overflow-x-auto overscroll-x-contain">
+                        <table className="min-w-[920px] w-max border-collapse text-sm">
                             <thead>
                                 <tr className="bg-primary text-primary-foreground">
                                     <th className="w-14 whitespace-nowrap px-4 py-3.5 text-center font-semibold">
                                         নং
                                     </th>
-                                    <th className="min-w-[280px] px-4 py-3.5 text-left font-semibold">
+                                    <th className="min-w-[280px] px-4 py-3.5 text-center font-semibold">
                                         শিরোনাম
                                     </th>
                                     <th className="w-28 whitespace-nowrap px-4 py-3.5 text-center font-semibold">
@@ -170,7 +173,7 @@ export default function Notice() {
                                         ফাইল
                                     </th>
                                     <th className="w-32 whitespace-nowrap px-4 py-3.5 text-center font-semibold">
-                                        প্রকাশের তারিখ
+                                        আবেদন শুরু
                                     </th>
                                     <th className="w-28 whitespace-nowrap px-4 py-3.5 text-center font-semibold">
                                         কার্যক্রম
@@ -225,8 +228,7 @@ export default function Notice() {
                                                     rel="noopener noreferrer"
                                                     className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-opacity hover:opacity-90"
                                                 >
-                                                    <FaEye className="h-3 w-3" />
-                                                    দেখুন
+                                                    Apply
                                                 </a>
                                             </td>
                                         </tr>

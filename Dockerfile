@@ -30,7 +30,7 @@ RUN composer install --optimize-autoloader --no-dev
 RUN npm install && npm run build
 
 
-RUN php artisan config:cache
+#RUN php artisan config:cache
 
 
 RUN chmod -R 775 storage bootstrap/cache

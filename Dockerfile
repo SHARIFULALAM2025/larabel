@@ -23,7 +23,7 @@ COPY . .
 RUN composer install --optimize-autoloader --no-dev
 RUN npm install && npm run build
 
-# গুরুত্বপূর্ণ: প্রয়োজনীয় storage subfolder তৈরি করা এবং permission ঠিক করা
+
 RUN mkdir -p storage/framework/views \
     storage/framework/cache \
     storage/framework/sessions \

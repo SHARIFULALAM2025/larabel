@@ -25,17 +25,14 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="bg-card border-b border-border w-full shadow-sm fixed top-0 z-50">
+        <nav className="bg-background border-b border-border w-full shadow-sm fixed top-0 z-50">
             <div className=" px-4">
                 <div className="flex justify-between items-center h-14">
                     {/* Logo */}
                     <div className="shrink-0">
                         <Link href="/" className="flex items-center gap-2">
+
                             <ApplicationLogo className="h-9 w-auto" />
-                            <h1 className="font-display text-lg md:text-xl font-bold text-foreground">
-                                Sharif
-                                <span className="text-success">Academy</span>
-                            </h1>
                         </Link>
                     </div>
 

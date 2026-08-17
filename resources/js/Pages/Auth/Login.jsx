@@ -133,7 +133,7 @@ export default function Login({ status, canResetPassword }) {
                     </form>
 
                     <p className="text-center text-sm text-foreground mt-4">
-                        Don't have an account?{" "}
+                        Don't have an account?
                         <Link
                             href={route("register")}
                             className="text-accent font-bold hover:underline"

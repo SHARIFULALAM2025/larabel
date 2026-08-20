@@ -1,0 +1,15 @@
+Table users {
+  id integer [primary key]
+  name varchar
+  email varchar [unique]
+  created_at timestamp
+}
+
+Table posts {
+  id integer [primary key]
+  title varchar
+  user_id integer
+  created_at timestamp
+}
+
+Ref: posts.user_id > users.id
